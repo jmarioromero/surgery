@@ -1,0 +1,30 @@
+/**
+ * All your custom CSS should go into this file
+ */
+body { background-color: #F7F7F7; }
+.section { margin-top: 100px; }
+.atsymbol { font-weight: bold; font-size: 19px; }
+.align_center { text-align: center; }
+.align_left { text-align: left; }
+.align_right { text-align: right; }
+.wrapper-form { -moz-border-radius: 4px; -webkit-border-radius: 4px; -khtml-border-radius: 4px; border-radius: 4px; border: 2px solid #F1F1F1; background-color: #FFF; }
+.bootstrap-select .btn-default, .open .dropdown-toggle.btn-default { color: #7b8a8b; background-color: #FFF; border: 2px solid #dce4ec; height: 43px; }
+.bootstrap-select.btn-group.show-tick .dropdown-menu li.selected a i.check-mark { margin-top: 6.5px; }
+.hidden_section { display: none; }
+.required, .required:focus { border: 2px solid #e74c3c; }
+.required:focus { -moz-transition: none; -webkit-transition: none; -o-transition: color 0 ease-in; transition: none; }
+h3.subtitle { margin: 0; }
+.polltext-wrapper { padding: 16px 0; }
+.glyphicon { top: 0px; }
+.date-wrapper { width: 100%; }
+.date-wrapper .labeltext { padding-left: 0px; }
+.subtitle-poll { padding: 10px 0; }
+.date .glyphicon-calendar { cursor: pointer; }
+.table-actions { width: 100%; }
+.last-row .form-group { margin-bottom: 0px; }
+.btn-default, .btn-default:focus { background-color: #FFF; border: 2px solid #DCE4EC; color: #2c3e50; }
+.btn-default:hover { background-color: #ecf0f1; border: 2px solid #DCE4EC; color: #333; }
+/* Small devices (phones) */
+@media (max-width: 480px) {
+
+}
