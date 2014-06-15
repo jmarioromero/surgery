@@ -1,11 +1,11 @@
-<?php $label = isset($label) ? lang($label) : ''; ?>
-<?php $id = isset($id) ? $id : ''; ?>
 <?php $class = isset($class) ? $class : ''; ?>
-<?php $date_at = isset($date_at) ? $date_at : date('d-m-Y'); ?>
+<?php $id = isset($id) ? $id : ''; ?>
+<?php $label = isset($label) ? lang($label) : ''; ?>
+<?php $name = isset($name) ? $name : ''; ?>
+<?php $value = isset($value) ? $value : date(DATEPICKER_FORMAT); ?>
 
 <div class="input-group date date-wrapper" 
     data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-
     <span class="input-group-addon add-on glyphicon glyphicon-calendar"></span>
     
     <?php if($label): ?>
@@ -16,8 +16,6 @@
     
     <input id="<?php echo $id; ?>" 
         class="span2 inputdate form-control <?php echo $class; ?>" 
-        size="16" type="text" readonly="" value="<?php echo $date_at; ?>" />
-        
+        size="16" type="text" readonly="" value="<?php echo $value; ?>" 
+        name="<?php echo $name; ?>" />
 </div>
-
-<?php unset_at([$id, $class, $date_at]); ?>

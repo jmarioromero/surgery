@@ -10,6 +10,7 @@ define('VIEW_POLL_ACTIONS', 'poll_actions');
 define('VIEW_POLL_PERSONALDATA', 'poll_personaldata');
 define('VIEW_POLL_CONTACTDATA', 'poll_contactdata');
 define('VIEW_POLL_HEALTHDATA', 'poll_healthdata');
+define('TABLE_MARKETING', 'MARKETING');
 /*************
  * FUNCTIONS
  *************/
@@ -28,7 +29,9 @@ function init_entity_select()
     return array(
         'label' => 'marketing.healthentity_label',
         'options' => array(
-            '1' => 'marketing.doctype_option1'
+            '1' => 'Caf&eacute;Salud',
+            '2' => 'Coomeva',
+            '3' => 'Saludcoop'
         )
     );
 }
@@ -38,7 +41,8 @@ function init_status_select()
     return array(
         'label' => 'marketing.agreement_label',
         'options' => array(
-            '1' => 'marketing.doctype_option1'
+            '0' => 'Inactivo',
+            '1' => 'Activo'
         )
     );
 }
@@ -48,7 +52,9 @@ function init_agreement_select()
     return array(
         'label' => 'marketing.status_label',
         'options' => array(
-            '1' => 'marketing.doctype_option1'
+            '1' => 'Comfandi',
+            '2' => 'Comfenalco POS',
+            '3' => 'Nueva EPS'
         )
     );
 }

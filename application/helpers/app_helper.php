@@ -1,17 +1,4 @@
 <?php
-function isset_at($obj=NULL, $default='') 
-{
-    return (isset($obj) ? $obj : $default);
-}
-
-function unset_at($args=[])
-{
-    foreach($args as $arg)
-    {
-        global $arg;
-        unset($arg);
-    }
-}
 
 function load_view($view=NULL, $vars=array())
 {
@@ -22,14 +9,16 @@ function load_view($view=NULL, $vars=array())
 function validateVars($vars=array())
 {
     $default = array(
-        'id' => '', 
         'class' => '',
-        'label' => '',
-        'text' => '',
+        'default' => '',
+        'id' => '', 
         'icon' => '',
-        'date_at' => '',
-        'placeholder' => '',
+        'label' => '',
         'maxlength' => '',
+        'name' => '',
+        'placeholder' => '',
+        'text' => '',
+        'value' => ''
         );
     
     foreach($default as $key => $value) 
@@ -47,7 +36,7 @@ function datepicker($vars=array())
 {
     if(!isset($vars['date_at']) || empty($vars['date_at']))
     {
-        $vars['date_at'] = date(DATEPICKER_FORMAT);
+        $vars['value'] = date(DATEPICKER_FORMAT);
     }
     
     load_view(VIEW_DATEPICKER, validateVars($vars));

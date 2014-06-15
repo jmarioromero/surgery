@@ -16,7 +16,8 @@
             
                 <?php input(array(
                     'label' => 'marketing.name_label',
-                    'class' => 'onlyletters'
+                    'class' => 'onlyletters',
+                    'name' => 'name'
                 )); ?>
             
             </div>                
@@ -26,7 +27,8 @@
             
                 <?php input(array(
                     'label' => 'marketing.lastname_label',
-                    'class' => 'onlyletters'
+                    'class' => 'onlyletters',
+                    'name' => 'lastname'
                 )); ?>
             
             </div>                
@@ -45,7 +47,8 @@
             
                 <?php input(array(
                     'label' => 'marketing.docid_label',
-                    'class' => 'numeric'
+                    'class' => 'numeric',
+                    'name' => 'document'
                 )); ?>
             
             </div>                
@@ -55,7 +58,10 @@
         <div class="col-md-6">
             <div class="form-group">
             
-                <?php datepicker(array('label' => 'marketing.birthdate_label')); ?>
+                <?php datepicker(array(
+                    'label' => 'marketing.birthdate_label',
+                    'name' => 'birthday'
+                )); ?>
             
             </div>                
         </div>

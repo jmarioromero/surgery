@@ -17,7 +17,7 @@ if (!defined('BASEPATH'))
   | path to your installation.
   |
  */
-$config['base_url'] = 'http://localhost/php-projects/surgery/';
+$config['base_url'] = 'http://localhost/surgery/';
 
 /*
   |--------------------------------------------------------------------------

@@ -13,7 +13,9 @@ class Marketing extends MY_Controller
         // load constants helper.
         $this->load->helper('marketing');
         // load language file
-        $this->lang->load('marketing');        
+        $this->lang->load('marketing');
+        // Load models.
+        $this->load->model('marketingm');        
     }
 
     public function index()
@@ -26,5 +28,21 @@ class Marketing extends MY_Controller
         load_view(VIEW_HEADER);
         load_view(VIEW_MARKETING, $data);
         load_view(VIEW_FOOTER);
+    }
+    
+    public function save()
+    {
+        try
+        {
+            $values = $this->input->post('values');
+
+            if ($values)
+            {
+                $this->marketingm->save(json_decode($values));
+            }
+        } catch (Exception $exc)
+        {
+            echo $exc;
+        }
     }
 }
