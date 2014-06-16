@@ -56,3 +56,11 @@ function button($vars=array())
 {
     load_view(VIEW_BUTTON, validateVars($vars));
 }
+
+function getObjResponse($code=NULL, $description=NULL)
+{
+    $res = new stdClass();
+    $res->code = $code;
+    $res->description = $description;
+    return $res;
+}

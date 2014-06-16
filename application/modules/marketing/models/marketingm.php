@@ -19,7 +19,7 @@ class Marketingm extends MY_Model
 
         try
         {
-            if ($values)
+            if ($values && count($values))
             {
                 $params = array();
 

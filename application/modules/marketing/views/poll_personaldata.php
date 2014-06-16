@@ -5,7 +5,10 @@
         </div>
         <div class="col-md-6">
         
-            <?php datepicker(array('label' => 'marketing.pollform_date')); ?>
+            <?php datepicker(array(
+                'label' => 'marketing.pollform_date',
+                'name' => 'polldate'
+            )); ?>
 
         </div>
     </div>
@@ -17,6 +20,7 @@
                 <?php input(array(
                     'label' => 'marketing.name_label',
                     'class' => 'onlyletters',
+                    'maxlength' => '25',
                     'name' => 'name'
                 )); ?>
             
@@ -28,6 +32,7 @@
                 <?php input(array(
                     'label' => 'marketing.lastname_label',
                     'class' => 'onlyletters',
+                    'maxlength' => '25',
                     'name' => 'lastname'
                 )); ?>
             
@@ -48,6 +53,7 @@
                 <?php input(array(
                     'label' => 'marketing.docid_label',
                     'class' => 'numeric',
+                    'maxlength' => '30',
                     'name' => 'document'
                 )); ?>
             
@@ -60,6 +66,7 @@
             
                 <?php datepicker(array(
                     'label' => 'marketing.birthdate_label',
+                    'maxlength' => '16',
                     'name' => 'birthday'
                 )); ?>
             

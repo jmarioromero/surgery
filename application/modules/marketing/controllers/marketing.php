@@ -32,6 +32,8 @@ class Marketing extends MY_Controller
     
     public function save()
     {
+        $res = getObjResponse(SUCCESS);
+        
         try
         {
             $values = $this->input->post('values');
@@ -42,7 +44,9 @@ class Marketing extends MY_Controller
             }
         } catch (Exception $exc)
         {
-            echo $exc;
+            $res = getObjResponse(ERROR, $exc);
         }
+        
+        json_decode($res);
     }
 }

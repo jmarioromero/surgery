@@ -39,8 +39,11 @@ define('FOPEN_READ_WRITE_CREATE', 'a+b');
 define('FOPEN_WRITE_CREATE_STRICT', 'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT', 'x+b');
 
-/** INCLUDE **/
+/** GENERAL **/
 define('DATEPICKER_FORMAT', 'd-m-Y');
+define('SUCCESS', '00');
+define('ERROR', '01');
+/** INCLUDE **/
 define('VIEW_HEADER', 'include/header');
 define('VIEW_MENU', 'include/menu');
 define('VIEW_FOOTER', 'include/footer');
