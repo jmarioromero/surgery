@@ -13,32 +13,34 @@ class Marketingm extends MY_Model
         parent::__construct();
     }
 
-    public function save($values = NULL)
+    public function save($obj = NULL)
     {
-        $response = FALSE;
+        $res = getObjResponse(SUCCESS, lang('marketing.poll_created'));
 
         try
         {
-            if ($values && count($values))
+            if ($obj)
             {
-                $params = array();
-
-                foreach ($values as $obj)
+                if((isset($obj->document) && isset($obj->name))
+                    && (!empty($obj->document) && !empty($obj->name)))
                 {
-                    $params[] = array(
+                    $params = array(
                         'DOCUMENT' => $obj->document,
                         'NAME' => $obj->name,
                         'JSON_DATA' => json_encode($obj)
                     );
+    
+                    $this->executeInsert($params, TABLE_MARKETING);
+                } else {
+                    
                 }
-
-                $response = $this->insertInBatch($params, TABLE_MARKETING);
             }
         } catch (Exception $exc)
         {
-            throw new Exception($exc);
+            //throw new Exception($exc);
+            $res = getObjResponse(ERROR, $exc);
         }
 
-        return $response;
+        return $res;
     }
 }

@@ -12,6 +12,7 @@
             'bootstrap-select.min.js',
             'bootstrap-datepicker.js',
             'bootstrap-timepicker.min.js',
+            'bootstrap-growl.min.js',
             'spin.min.js',
             'ladda.min.js',
             'module_controller.js',

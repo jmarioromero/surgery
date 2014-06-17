@@ -1,11 +1,13 @@
 <form class="searchform" role="form">
     <h3 class="subtitle"><?php echo lang('marketing.search_title'); ?></h3>
     <hr/>
+    <!--
     <div class="form-group">
 
-        <?php select($document_select); ?>
+        <?php //select($document_select); ?>
         
     </div>
+    -->
     <div class="form-group">
     
         <?php input(array(

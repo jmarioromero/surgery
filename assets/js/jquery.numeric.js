@@ -53,9 +53,16 @@
         var tolower = (config.tolower === true) ? true : false;
         // allow only space
         var allowspace = (config.allowspace === true) ? true : false;
-
+        // allow email
+        var email = (config.email === true) ? true : false;
+        
         decimal = numbers_letters || onlyletters ? false : decimal;
         negative = numbers_letters || onlyletters ? false : negative;
+
+        if(email) {
+            numbers_letters = allowspace = tolower = true;
+            decimal = negative = onlyletters = false;
+        }
 
         // callback function
         var callback = typeof callback == "function" ? callback : function() {
@@ -65,6 +72,7 @@
                 .data("numeric.tolower", tolower)
                 .data("numeric.allowspace", allowspace)
                 .data("numeric.numbers_letters", numbers_letters)
+                .data("numeric.email", email)
                 .data("numeric.decimal", decimal)
                 .data("numeric.negative", negative)
                 .data("numeric.callback", callback)
@@ -95,6 +103,7 @@
         var onlyletters = $.data(this, "numeric.onlyletters");
         var tolower = $.data(this, "numeric.tolower");
         var allowspace = $.data(this, "numeric.allowspace");
+        var email = $.data(this, "numeric.email");
 
         // get the key that was pressed
         var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
@@ -119,11 +128,26 @@
         if (onlyletters || numbers_letters)
         {
             var _lastcharcode = this.value.charCodeAt(this.value.length - 1);
+            
+            var _if = (key == 45 || key == 95);
+            var _and_if = (_lastcharcode == 45 || _lastcharcode == 95);
 
-            if (((key == 45 || key == 95) && this.value.length == 0)
-                    || ((key == 45 || key == 95) && (_lastcharcode == 45 || _lastcharcode == 95)))
+            if ((_if && this.value.length == 0)
+                    || (_if && _and_if))
             {
                 return false;
+            }
+            
+            if(email)
+            {
+                _if = (key == 46 || key == 64);
+                _and_if = (_lastcharcode == 46 || _lastcharcode == 64);
+    
+                if ((_if && this.value.length == 0)
+                        || (_if && _and_if))
+                {
+                    return false;
+                }                
             }
         }
 
@@ -172,7 +196,7 @@
             }
 
             if (onlyletters || numbers_letters)
-            {
+            {                
                 if (tolower)
                 {
                     //[A-Z][Ñ]
@@ -180,6 +204,15 @@
                     {
                         return false;
                     }
+                }
+                
+                if (email)
+                {
+                    //[-][@]
+                    if (key == 46 || key == 64)
+                    {
+                        return true;
+                    }                    
                 }
 
                 //[az-AZ][ñ-Ñ]
@@ -312,6 +345,7 @@
             var numbers_letters = $.data(this, "numeric.numbers_letters");
             var onlyletters = $.data(this, "numeric.onlyletters");
             var tolower = $.data(this, "numeric.tolower");
+            var email = $.data(this, "numeric.email");
 
             // prepend a 0 if necessary
             if (decimal != "")
@@ -360,8 +394,14 @@
             {
                 if (tolower)
                 {
-                    validChars = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
-                        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+                    if (email)
+                    {
+                        validChars = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+                            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '@', '-', '.'];
+                    } else {
+                        validChars = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+                            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+                    }
                 } else {
                     validChars = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
                         'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
@@ -451,6 +491,7 @@
                 .data("numeric.tolower", null)
                 .data("numeric.allowspace", null)
                 .data("numeric.numbers_letters", null)
+                .data("numeric.email", null)
                 .data("numeric.decimal", null)
                 .data("numeric.negative", null)
                 .data("numeric.callback", null)

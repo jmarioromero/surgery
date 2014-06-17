@@ -14,7 +14,7 @@ body { background-color: #F7F7F7; }
 .required, .required:focus { border: 2px solid #e74c3c; }
 .required:focus { -moz-transition: none; -webkit-transition: none; -o-transition: color 0 ease-in; transition: none; }
 h3.subtitle { margin: 0; }
-.polltext-wrapper { padding: 16px 0; }
+.polltext-wrapper { padding: 20px 0; }
 .glyphicon { top: 0px; }
 .date-wrapper { width: 100%; }
 .date-wrapper .labeltext { padding-left: 0px; }

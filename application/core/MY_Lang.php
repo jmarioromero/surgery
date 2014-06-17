@@ -41,6 +41,12 @@ class MY_Lang extends CI_Lang {
 
   function MY_Lang()
   {
+    // avoid request to language
+    if(isset($_REQUEST['_ajax']) && $_REQUEST['_ajax'] == 1)
+    {
+        return FALSE;
+    }
+    
     parent::__construct();
 
     global $CFG;
@@ -76,8 +82,6 @@ class MY_Lang extends CI_Lang {
     }
   }
 
-
-
   // get current language
   // ex: return 'en' if language in CI config is 'english' 
   function lang()
@@ -94,7 +98,6 @@ class MY_Lang extends CI_Lang {
     return NULL;    // this should not happen
   }
 
-
   function is_special($lang_code)
   {
     if ((!empty($lang_code)) && (in_array($lang_code, $this->special)))
@@ -102,7 +105,6 @@ class MY_Lang extends CI_Lang {
     else
       return FALSE;
   }
-
 
   function switch_uri($lang)
   {
@@ -151,6 +153,7 @@ class MY_Lang extends CI_Lang {
   {
     $browser_lang = !empty($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? strtok(strip_tags($_SERVER['HTTP_ACCEPT_LANGUAGE']), ',') : '';
     $browser_lang = substr($browser_lang, 0,2);
+    
     if(array_key_exists($browser_lang, $this->languages))
         return $browser_lang;
     else{
@@ -192,6 +195,13 @@ class MY_Lang extends CI_Lang {
      * modify your code 
      */
     function load($langfile = '', $idiom = '', $return = FALSE, $add_suffix = TRUE, $alt_path = '', $load_first_lang = false) {
+        
+        // avoid request to language
+        if(isset($_REQUEST['_ajax']) && $_REQUEST['_ajax'] == 1)
+        {
+            return FALSE;
+        }
+        
         if ($load_first_lang) {
             reset($this->languages);
             $firstKey = key($this->languages);

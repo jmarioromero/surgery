@@ -31,7 +31,11 @@
                 if(_callback) _callback(this, _evt);
                 return false;
             });            
-        }           
+        },
+        
+        alert: function(_text, _type) {
+            $.growl(_text, { type: _type, align: 'top center'});
+        }
     };
 })(jQuery);
 

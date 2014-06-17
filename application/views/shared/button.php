@@ -3,7 +3,9 @@
 <?php $icon = isset($icon) ? $icon : ''; ?>
 <?php $text = isset($text) ? lang($text) : ''; ?>
 
-<button type="button" id="<?php echo $id; ?>" class="btn <?php echo $class; ?>">
+<button data-style="expand-left" 
+    id="<?php echo $id; ?>" class="btn ladda-button <?php echo $class; ?>"
+    type="button">
     
     <?php if($icon): ?>
 

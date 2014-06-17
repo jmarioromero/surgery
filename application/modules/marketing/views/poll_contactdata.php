@@ -39,7 +39,7 @@
 
                 <?php input(array(
                     'label' => 'marketing.email_label',
-                    'class' => 'onlyletters',
+                    'class' => 'email',
                     'maxlength' => '40',
                     'name' => 'email'                    
                 )); ?>

@@ -32,21 +32,9 @@ class Marketing extends MY_Controller
     
     public function save()
     {
-        $res = getObjResponse(SUCCESS);
-        
-        try
-        {
-            $values = $this->input->post('values');
-
-            if ($values)
-            {
-                $this->marketingm->save(json_decode($values));
-            }
-        } catch (Exception $exc)
-        {
-            $res = getObjResponse(ERROR, $exc);
-        }
-        
-        json_decode($res);
+        $values = $this->input->post('values');
+        $res = $this->marketingm->save(json_decode($values));
+        echo json_encode($res);
+        exit;
     }
 }

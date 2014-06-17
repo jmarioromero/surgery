@@ -28,3 +28,5 @@ $lang['marketing.healthdata_title'] = "Health Entity";
 $lang['marketing.healthentity_label'] = "Entity";
 $lang['marketing.agreement_label'] = "Agreement";
 $lang['marketing.status_label'] = "Status";
+/** MESSAGES **/
+$lang['marketing.poll_created'] = "Survey successfully stored";

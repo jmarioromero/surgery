@@ -9,9 +9,8 @@
     var _cancelsearchbtn = $('button.cancelsearch-btn');
     var _savebtn = $('button.savepool-btn');
     
-    var _ajax = function() {
-        setTimeout(function(_url, _params, _callback, _errorcallback) {
-            _params['_ajax'] = 1;
+    var _ajax = function(_url, _params, _callback, _errorcallback) {
+        setTimeout(function() {
             // call controller by ajax.
             $.ajax({
                 url: _url,
@@ -29,7 +28,7 @@
                 }
             });
         }, 500);        
-    }
+    };
     
     return {
         
@@ -42,6 +41,7 @@
             window.console.log('excecute method ready from marketingMod!');
 
             _section.find('input.onlyletters').numeric({onlyletters: true, allowspace: true});
+            _section.find('input.email').numeric({email: true});
             _section.find('input.numeric').numeric({decimal: false, negative: false});
             _section.find('select.selectpicker').selectpicker();
             
@@ -63,10 +63,12 @@
             });
         },
         
-        cancelPoll: function(_this) {
+        cancelPoll: function(_this, _callback) {
             _pollform.find('input').not('.inputdate').val('');
             _pollform.fadeOut('normal', function() {
-                _optionsform.fadeIn();
+                _optionsform.fadeIn('normal', function() {
+                    if(_callback) _callback();
+                });
             });
         },
         
@@ -74,19 +76,29 @@
             _searchform.find('input').val('');
         },
         
-        save: function(_this) {
+        save: function(_elm) {
             var _fieldList = {};
+            
+            var _spiner = false;
+            _spiner = Ladda.create(_elm);
+            _spiner.start();
             
             _pollform.find('input, select').each(function() {
                 var _this = $(this);
                 _fieldList[_this.attr('name')] = _this.val();
             });
             
-            this._ajax('/marketing/marketing/save',
-                {values: JSON.stringify(_fieldList)},
+            _ajax('marketing/marketing/save',
+                {_ajax: 1, values: JSON.stringify(_fieldList)},
                 function(_data) {
+                    if (_spiner) _spiner.stop();
                     console.log(_data);
-                }
+                    this.cancelPoll('', function() { cModule.alert(_data.description, 'success'); });
+                },
+                function() {
+                    if (_spiner) _spiner.stop();
+                    console.log(_data);
+                }                
             );
         }
     };
