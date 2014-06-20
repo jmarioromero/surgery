@@ -18,6 +18,27 @@
             <div class="form-group">
             
                 <?php input(array(
+                    'label' => 'marketing.docid_label',
+                    'class' => 'numeric',
+                    'maxlength' => '30',
+                    'name' => 'document'
+                )); ?>
+            
+            </div>                
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+            
+                <?php select($document_select); ?>
+            
+            </div>                
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+            
+                <?php input(array(
                     'label' => 'marketing.name_label',
                     'class' => 'onlyletters',
                     'maxlength' => '25',
@@ -34,27 +55,6 @@
                     'class' => 'onlyletters',
                     'maxlength' => '25',
                     'name' => 'lastname'
-                )); ?>
-            
-            </div>                
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-            
-                <?php select($document_select); ?>
-            
-            </div>                
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-            
-                <?php input(array(
-                    'label' => 'marketing.docid_label',
-                    'class' => 'numeric',
-                    'maxlength' => '30',
-                    'name' => 'document'
                 )); ?>
             
             </div>                

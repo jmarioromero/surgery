@@ -2,9 +2,10 @@
 /** MARKETING **/
 $lang['marketing.marketing_form'] = "Mercadeo";
 $lang['marketing.poll_title'] = "Realice una encuesta";
-$lang['marketing.poll_text'] = "Obtenga la informaci&oacute;n b&aacute;sica del cliente diligenciando un breve formulario";
+$lang['marketing.poll_text'] = "Ingrese al sistema informaci&oacute;n b&aacute;sica del cliente diligenciando un breve formulario.";
 $lang['marketing.poll_button'] = "Nueva encuesta";
 $lang['marketing.search_title'] = "Buscar un cliente";
+$lang['marketing.search_text'] = "Indique en el siguiente campo informaci&oacute;n relacionada con el cliente.";
 $lang['marketing.doctype_label'] = "Tipo doc.";
 $lang['marketing.doctype_option1'] = "C.C";
 $lang['marketing.docid_label'] = "Documento";
@@ -29,4 +30,6 @@ $lang['marketing.healthentity_label'] = "EPS";
 $lang['marketing.agreement_label'] = "Convenio";
 $lang['marketing.status_label'] = "Estado";
 /** MESSAGES **/
-$lang['marketing.poll_created'] = "Encuesta almacenada correctamente.";
+$lang['marketing.invalid_data'] = "Datos invalidos.";
+$lang['marketing.poll_created'] = "La encuesta ha sido creada y almacenada correctamente.";
+$lang['marketing.user_exists'] = "El documento ya existe en el sistema.";

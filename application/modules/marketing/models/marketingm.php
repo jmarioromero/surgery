@@ -12,27 +12,37 @@ class Marketingm extends MY_Model
     {
         parent::__construct();
     }
-
-    public function save($obj = NULL)
+    
+    private function documentExists($document = NULL)
     {
-        $res = getObjResponse(SUCCESS, lang('marketing.poll_created'));
+        $query = <<<EOF
+SELECT COUNT(1) AS 'exist' 
+FROM MARKETING m 
+WHERE m.DOCUMENT = ? 
+EOF;
+        $res = $this->executeQuery($query, array($document));
+        return $res->exist;
+    }
+
+    public function save($jsonObj = NULL)
+    {
+        $res = getObjResponse(ERROR, 'marketing.invalid_data');
 
         try
         {
-            if ($obj)
+            if ($jsonObj)
             {
-                if((isset($obj->document) && isset($obj->name))
-                    && (!empty($obj->document) && !empty($obj->name)))
+                if($this->documentExists($jsonObj->document)) 
                 {
-                    $params = array(
-                        'DOCUMENT' => $obj->document,
-                        'NAME' => $obj->name,
-                        'JSON_DATA' => json_encode($obj)
-                    );
-    
-                    $this->executeInsert($params, TABLE_MARKETING);
+                    $res = getObjResponse(ERROR, 'marketing.user_exists');
                 } else {
+                    $this->executeInsert(array(
+                        'DOCUMENT' => $jsonObj->document,
+                        'NAME' => $jsonObj->name,
+                        'JSON_DATA' => json_encode($jsonObj)
+                    ), TABLE_MARKETING);
                     
+                    $res = getObjResponse(SUCCESS, 'marketing.poll_created');
                 }
             }
         } catch (Exception $exc)

@@ -78,20 +78,22 @@
                 .data("numeric.callback", callback)
                 .keypress($.fn.numeric.keypress)
                 .keyup($.fn.numeric.keyup)
-                .blur($.fn.numeric.blur)
+                .blur($.fn.numeric.blur);
                 // disable copy paste.
+                /*
                 .bind('copy paste cut', function(_evt) {
                     _evt.preventDefault();
                     return false;
                 }).on('copy paste cut', function(_evt) {
-            _evt.preventDefault();
-            return false;
-        }).attr({
-            autocomplete: 'off',
-            autocorrect: 'off',
-            autocapitalize: 'off',
-            spellcheck: 'false'
-        });
+                    _evt.preventDefault();
+                    return false;
+                })
+                .attr({
+                    autocomplete: 'off',
+                    autocorrect: 'off',
+                    autocapitalize: 'off',
+                    spellcheck: 'false'
+                });*/
     };
 
     $.fn.numeric.keypress = function(e)

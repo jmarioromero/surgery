@@ -18,7 +18,7 @@ function init_document_select()
 {
     return array(
         'label' => 'marketing.doctype_label',
-        'name' => 'document',        
+        'name' => 'documenttype',        
         'options' => array(
             '1' => 'marketing.doctype_option1'
         )
@@ -41,8 +41,8 @@ function init_entity_select()
 function init_status_select()
 {
     return array(
-        'label' => 'marketing.agreement_label',
-        'name' => 'agreement',
+        'label' => 'marketing.status_label',
+        'name' => 'status',
         'options' => array(
             '0' => 'Inactivo',
             '1' => 'Activo'
@@ -53,8 +53,8 @@ function init_status_select()
 function init_agreement_select()
 {
     return array(
-        'label' => 'marketing.status_label',
-        'name' => 'status',
+        'label' => 'marketing.agreement_label',
+        'name' => 'agreement',
         'options' => array(
             '1' => 'Comfandi',
             '2' => 'Comfenalco POS',

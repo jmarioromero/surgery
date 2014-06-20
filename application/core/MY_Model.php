@@ -19,7 +19,12 @@ class MY_Model extends CI_Model
         try
         {
             $result = $this->db->query($sql, $params);
-            return $result->result();
+            $res = $result->result();
+            
+            $return = (count($res) == 1) ? $res[0] : $res;
+            
+            return $return;
+            
         } catch (Exception $e)
         {
             throw new Exception($e);

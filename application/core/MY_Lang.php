@@ -41,12 +41,6 @@ class MY_Lang extends CI_Lang {
 
   function MY_Lang()
   {
-    // avoid request to language
-    if(isset($_REQUEST['_ajax']) && $_REQUEST['_ajax'] == 1)
-    {
-        return FALSE;
-    }
-    
     parent::__construct();
 
     global $CFG;
@@ -69,17 +63,23 @@ class MY_Lang extends CI_Lang {
 
     if ((!$url_ok) && (!$this->is_special($uri_segment['parts'][0]))) // special URI -> no redirect
     { 
-      // set default language
-      $CFG->set_item('language', $this->languages[$this->default_lang()]);
+        // set default language
+        $CFG->set_item('language', $this->languages[$this->default_lang()]);
+        
+        $uri = (!empty($this->uri)) ? $this->uri: $this->default_uri;
+        //OPB - modification to use i18n also without changing the .htaccess (without pretty url) 
+        $index_url = empty($CFG->config['index_page']) ? '' : $CFG->config['index_page']."/";
+        $new_url = $CFG->config['base_url'].$index_url.$this->default_lang().'/'.$uri;
 
-      $uri = (!empty($this->uri)) ? $this->uri: $this->default_uri;
-      //OPB - modification to use i18n also without changing the .htaccess (without pretty url) 
-      $index_url = empty($CFG->config['index_page']) ? '' : $CFG->config['index_page']."/";
-      $new_url = $CFG->config['base_url'].$index_url.$this->default_lang().'/'.$uri;
-
-      header("Location: " . $new_url, TRUE, 302);
-      exit;
-    }
+        // avoid request to language
+        if(isset($_REQUEST['_ajax']) && $_REQUEST['_ajax'] == 1)
+        {
+            return FALSE;
+        } else {
+            header("Location: " . $new_url, TRUE, 302);
+            exit;
+        }
+     }
   }
 
   // get current language
@@ -195,12 +195,6 @@ class MY_Lang extends CI_Lang {
      * modify your code 
      */
     function load($langfile = '', $idiom = '', $return = FALSE, $add_suffix = TRUE, $alt_path = '', $load_first_lang = false) {
-        
-        // avoid request to language
-        if(isset($_REQUEST['_ajax']) && $_REQUEST['_ajax'] == 1)
-        {
-            return FALSE;
-        }
         
         if ($load_first_lang) {
             reset($this->languages);

@@ -6,29 +6,8 @@
     var _pollform = $('div#marketing-pollform');
     var _cancelbtn = $('button.cancelpool-btn');
     var _searchform = $('form.searchform');
-    var _cancelsearchbtn = $('button.cancelsearch-btn');
+    var _searchbtn = $('button.search-btn');
     var _savebtn = $('button.savepool-btn');
-    
-    var _ajax = function(_url, _params, _callback, _errorcallback) {
-        setTimeout(function() {
-            // call controller by ajax.
-            $.ajax({
-                url: _url,
-                type: 'POST',
-                data: _params,
-                contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
-                cache: false,
-                success: function(_data) {
-                    console.log(_data);
-                    if(_callback) _callback(_data);
-                },
-                error: function() {
-                    alert('Error.');
-                    if(_errorcallback) _errorcallback();
-                }
-            });
-        }, 500);        
-    };
     
     return {
         
@@ -53,7 +32,7 @@
             
             cModule.clickEvent(_gotopollformbtn, this.goToPollForm);
             cModule.clickEvent(_cancelbtn, this.cancelPoll);
-            cModule.clickEvent(_cancelsearchbtn, this.cancelSearch);
+            cModule.clickEvent(_searchbtn, this.search);
             cModule.clickEvent(_savebtn, this.save);
         },
         
@@ -67,13 +46,13 @@
             _pollform.find('input').not('.inputdate').val('');
             _pollform.fadeOut('normal', function() {
                 _optionsform.fadeIn('normal', function() {
-                    if(_callback) _callback();
+                    if(cModule.isFunc(_callback)) _callback();
                 });
             });
         },
         
-        cancelSearch: function(_this) {
-            _searchform.find('input').val('');
+        search: function(_this) {
+            console.log($('input#search').val());
         },
         
         save: function(_elm) {
@@ -88,12 +67,18 @@
                 _fieldList[_this.attr('name')] = _this.val();
             });
             
-            _ajax('marketing/marketing/save',
+            cModule.callAjax('marketing/marketing/save',
                 {_ajax: 1, values: JSON.stringify(_fieldList)},
                 function(_data) {
                     if (_spiner) _spiner.stop();
                     console.log(_data);
-                    this.cancelPoll('', function() { cModule.alert(_data.description, 'success'); });
+                    if(_data.code === '00') {
+                        marketingModule.cancelPoll('', function() { 
+                            cModule.alert(_data.description, 'success');
+                        });
+                    } else {
+                        cModule.alert(_data.description, 'warning');
+                    }
                 },
                 function() {
                     if (_spiner) _spiner.stop();

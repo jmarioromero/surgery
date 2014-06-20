@@ -35,6 +35,5 @@ class Marketing extends MY_Controller
         $values = $this->input->post('values');
         $res = $this->marketingm->save(json_decode($values));
         echo json_encode($res);
-        exit;
     }
 }

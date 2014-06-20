@@ -8,15 +8,13 @@
             <div class="align_center polltext-wrapper">
                 <p><?php echo lang('marketing.poll_text'); ?></p>
                 <br />
-                <p>
-
-                    <?php button(array(
-                        'class' => 'btn-success',
-                        'id' => 'gotopollform-btn',
-                        'text' => 'marketing.poll_button'
-                    )); ?>
                 
-                </p>
+                <?php button(array(
+                    'class' => 'btn-success',
+                    'id' => 'gotopollform-btn',
+                    'text' => 'marketing.poll_button'
+                )); ?>
+                
             </div>
             <hr/>
         </div>        

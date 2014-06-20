@@ -1,12 +1,12 @@
 <?php
 
-function load_view($view=NULL, $vars=array())
+function load_view($view = NULL, $vars = array())
 {
     $CI = & get_instance();
     $CI->load->view($view, $vars);
 }
 
-function validateVars($vars=array())
+function validateVars($vars = array())
 {
     $default = array(
         'class' => '',
@@ -15,6 +15,7 @@ function validateVars($vars=array())
         'icon' => '',
         'label' => '',
         'maxlength' => '',
+        'innergroup' => TRUE,
         'name' => '',
         'placeholder' => '',
         'text' => '',
@@ -25,19 +26,18 @@ function validateVars($vars=array())
     {
         if(!isset($vars["{$key}"])) 
         {
-            $vars["{$key}"] = '';
+            $vars["{$key}"] = $value;
         }
     }        
     
     return $vars;
 }
 
-function datepicker($vars=array())
+function datepicker($vars = array())
 {
-    if(!isset($vars['date_at']) || empty($vars['date_at']))
-    {
-        $vars['value'] = date(DATEPICKER_FORMAT);
-    }
+    $vars = validateVars($vars);
+    
+    $vars['value'] = empty($vars['value']) ? date(DATEPICKER_FORMAT) : $vars['value'];
     
     load_view(VIEW_DATEPICKER, validateVars($vars));
 }
@@ -57,10 +57,10 @@ function button($vars=array())
     load_view(VIEW_BUTTON, validateVars($vars));
 }
 
-function getObjResponse($code=NULL, $description=NULL)
+function getObjResponse($code = NULL, $description = NULL)
 {
     $res = new stdClass();
     $res->code = $code;
-    $res->description = $description;
+    $res->description = lang($description);
     return $res;
 }

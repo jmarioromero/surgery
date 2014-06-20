@@ -2,9 +2,10 @@
 /** MARKETING **/
 $lang['marketing.marketing_form'] = "Marketing";
 $lang['marketing.poll_title'] = "Conduct a survey";
-$lang['marketing.poll_text'] = "Get the basic information of the client filling out a short form";
+$lang['marketing.poll_text'] = "Enter the basic customer information to system by filling out a short form.";
 $lang['marketing.poll_button'] = "Fill a new poll";
 $lang['marketing.search_title'] = "Search for a customer";
+$lang['marketing.search_text'] = "Indicate the following information related to the customer field.";
 $lang['marketing.doctype_label'] = "Doc. type";
 $lang['marketing.doctype_option1'] = "C.C";
 $lang['marketing.docid_label'] = "Document";
@@ -29,4 +30,6 @@ $lang['marketing.healthentity_label'] = "Entity";
 $lang['marketing.agreement_label'] = "Agreement";
 $lang['marketing.status_label'] = "Status";
 /** MESSAGES **/
+$lang['marketing.invalid_data'] = "Invalid Data.";
 $lang['marketing.poll_created'] = "Survey successfully stored";
+$lang['marketing.user_exists'] = "The document already exists in the system.";
