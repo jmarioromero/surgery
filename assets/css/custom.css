@@ -2,7 +2,7 @@
  * All your custom CSS should go into this file
  */
 body { background-color: #F7F7F7; }
-.section { margin-top: 100px; }
+.section { margin-top: 50px; }
 .atsymbol { font-weight: bold; font-size: 19px; }
 .align_center { text-align: center; }
 .align_left { text-align: left; }
@@ -24,7 +24,11 @@ h3.subtitle { margin: 0; }
 .last-row .form-group { margin-bottom: 0px; }
 .btn-default, .btn-default:focus { background-color: #FFF; border: 2px solid #DCE4EC; color: #2c3e50; }
 .btn-default:hover { background-color: #ecf0f1; border: 2px solid #DCE4EC; color: #333; }
+a.btn { text-decoration: none; }
 .dropdown-menu>li>a { padding: 3px 15px; }
+.alert-danger { background-color: #CA324B; border-color: #CA324B; color: #FFF; }
+.alert-success { background-color: #32CB93; border-color: #32CB93; color: #FFF; }
+.alert-warning { background-color: #665685; border-color: #665685; color: #FFF; }
 /* Small devices (phones) */
 @media (max-width: 480px) {
 

@@ -5,8 +5,8 @@
                 <tr>
                     <td class="align_left">
                     
-                        <?php button(array(
-                            'class' => 'btn-default cancelpool-btn',
+                        <?php alink(array(
+                            'href' => base_url(ROUTE_MARKETING),
                             'text' => 'marketing.cancel_button'
                         )); ?>
                         

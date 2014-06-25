@@ -32,6 +32,8 @@ EOF;
         {
             if ($jsonObj)
             {
+                validate();
+                
                 if($this->documentExists($jsonObj->document)) 
                 {
                     $res = getObjResponse(ERROR, 'marketing.user_exists');

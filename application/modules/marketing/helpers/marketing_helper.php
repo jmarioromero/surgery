@@ -2,6 +2,12 @@
 /*************
  * CONSTANTS
  *************/
+//ROUTES
+define('ROUTE_MARKETING', 'marketing');
+define('ROUTE_POLL', 'marketing/poll');
+//TABLES
+define('TABLE_MARKETING', 'MARKETING');
+//VIEWS
 define('VIEW_MARKETING', 'marketing');
 define('VIEW_MARKETING_SEARCH', 'marketing_search');
 define('VIEW_MARKETING_POLL', 'marketing_poll');
@@ -10,7 +16,7 @@ define('VIEW_POLL_ACTIONS', 'poll_actions');
 define('VIEW_POLL_PERSONALDATA', 'poll_personaldata');
 define('VIEW_POLL_CONTACTDATA', 'poll_contactdata');
 define('VIEW_POLL_HEALTHDATA', 'poll_healthdata');
-define('TABLE_MARKETING', 'MARKETING');
+define('VIEW_CUSTOMER_SEARCH', 'customer_search');
 /*************
  * FUNCTIONS
  *************/

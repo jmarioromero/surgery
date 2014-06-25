@@ -48,10 +48,11 @@ define('VIEW_HEADER', 'include/header');
 define('VIEW_MENU', 'include/menu');
 define('VIEW_FOOTER', 'include/footer');
 /** SHARED **/
-define('VIEW_SELECT', 'shared/select');
+define('VIEW_BUTTON', 'shared/button');
 define('VIEW_DATEPICKER', 'shared/datepicker');
 define('VIEW_INPUT', 'shared/input');
-define('VIEW_BUTTON', 'shared/button');
+define('VIEW_LINK', 'shared/link');
+define('VIEW_SELECT', 'shared/select');
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

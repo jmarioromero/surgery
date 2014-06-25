@@ -18,20 +18,9 @@
         <div class="col-md-6">
             <div class="form-group">
             
-                <?php select($status_select); ?>
-            
-            </div>                
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-
                 <?php select($agreement_select); ?>
             
             </div>                
-        </div>
-        <div class="col-md-6">
         </div>
     </div>
     <hr />

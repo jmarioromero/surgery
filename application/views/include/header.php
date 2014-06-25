@@ -31,6 +31,7 @@
 
     </head>
     <body>
+        <input id="baseurl" type="hidden" value="<?php echo base_url(); ?>"/>
         <div class="container">
 
             <?php //$this->load->view(VIEW_MENU); ?>

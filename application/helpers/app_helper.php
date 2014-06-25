@@ -11,6 +11,7 @@ function validateVars($vars = array())
     $default = array(
         'class' => '',
         'default' => '',
+        'href' => '',
         'id' => '', 
         'icon' => '',
         'label' => '',
@@ -33,6 +34,11 @@ function validateVars($vars = array())
     return $vars;
 }
 
+function button($vars=array())
+{
+    load_view(VIEW_BUTTON, validateVars($vars));
+}
+
 function datepicker($vars = array())
 {
     $vars = validateVars($vars);
@@ -47,14 +53,14 @@ function input($vars=array())
     load_view(VIEW_INPUT, validateVars($vars));
 }
 
+function alink($vars=array())
+{
+    load_view(VIEW_LINK, validateVars($vars));
+}
+
 function select($vars=array())
 {
     load_view(VIEW_SELECT, validateVars($vars));
-}
-
-function button($vars=array())
-{
-    load_view(VIEW_BUTTON, validateVars($vars));
 }
 
 function getObjResponse($code = NULL, $description = NULL)
@@ -63,4 +69,14 @@ function getObjResponse($code = NULL, $description = NULL)
     $res->code = $code;
     $res->description = lang($description);
     return $res;
+}
+
+function validate($obj, $mod_name, $except)
+{
+    
+    foreach ($obj as $key => $value) {
+        echo "$key => $value\n";
+    }
+    
+    
 }

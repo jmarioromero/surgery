@@ -1,6 +1,8 @@
 ;var cModule = (function($) {
 
     var _moduleList = [];
+    var BASEURL = {};
+    var SUCCESSCODE = '00';
 
     return {
         
@@ -15,7 +17,11 @@
         },
         
         documentReady: function() {
-
+            
+            BASEURL = $('input#baseurl').val();
+            
+            if(BASEURL == '') window.console.log('[Warning] BASEURL no set!');
+            
             window.console.log('excecute method ready in cModule!');
 
             for (var _i in _moduleList)
@@ -54,9 +60,16 @@
         },        
         
         callAjax: function(_url, _params, _callback, _errorcallback) {
+            
+            if ($.type(_params) === 'string') {
+                _params += '&_ajax=1';
+            } else {
+                _params._ajax = 1;
+            }            
+            
             setTimeout(function() {
                 $.ajax({
-                    url: _url,
+                    url: (BASEURL + _url),
                     type: 'POST',
                     data: _params,
                     contentType: 'application/x-www-form-urlencoded;charset=UTF-8',

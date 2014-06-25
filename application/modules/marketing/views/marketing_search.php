@@ -1,6 +1,4 @@
 <form class="searchform" role="form">
-    <h3 class="subtitle"><?php echo lang('marketing.search_title'); ?></h3>
-    <hr/>
     <div class="align_center polltext-wrapper">
         <p><?php echo lang('marketing.search_text'); ?></p>
         <br />    

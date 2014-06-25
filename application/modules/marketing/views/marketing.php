@@ -9,8 +9,9 @@
                 <p><?php echo lang('marketing.poll_text'); ?></p>
                 <br />
                 
-                <?php button(array(
+                <?php alink(array(
                     'class' => 'btn-success',
+                    'href' => base_url(ROUTE_POLL),
                     'id' => 'gotopollform-btn',
                     'text' => 'marketing.poll_button'
                 )); ?>
@@ -20,15 +21,11 @@
         </div>        
         <div class="col-md-6">
         
+            <h3 class="subtitle"><?php echo lang('marketing.search_title'); ?></h3>
+            <hr/>
+        
             <?php load_view(VIEW_MARKETING_SEARCH); ?>
                         
         </div>
-    </div>
-    <div class="row hidden_section" id="marketing-pollform">
-        <div class="col-md-12">
-        
-            <?php load_view(VIEW_MARKETING_POLL); ?>
-        
-        </div>
-    </div>    
+    </div>  
 </div>
