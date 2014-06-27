@@ -12,6 +12,7 @@
                 <?php alink(array(
                     'class' => 'btn-success',
                     'href' => base_url(ROUTE_POLL),
+                    'icon' => 'glyphicon-plus',
                     'id' => 'gotopollform-btn',
                     'text' => 'marketing.poll_button'
                 )); ?>

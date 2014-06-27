@@ -11,6 +11,7 @@ $lang['marketing.doctype_option1'] = "C.C";
 $lang['marketing.docid_label'] = "Document";
 $lang['marketing.name_label'] = "Full name";
 $lang['marketing.search_button'] = "Search";
+$lang['marketing.home_button'] = "Go to home";
 /** POLL PERSONALDATA **/
 $lang['marketing.personaldata_title'] = "Personal Information";
 $lang['marketing.pollform_date'] = "Poll date";
@@ -31,5 +32,6 @@ $lang['marketing.agreement_label'] = "Agreement";
 $lang['marketing.status_label'] = "Status";
 /** MESSAGES **/
 $lang['marketing.invalid_data'] = "Invalid Data.";
-$lang['marketing.poll_created'] = "Survey successfully stored";
+$lang['marketing.poll_created'] = "Survey information has been successfully stored.";
 $lang['marketing.user_exists'] = "The document already exists in the system.";
+$lang['marketing.validate_msg'] = "You must fill out all fields in the form, and put valid information.";

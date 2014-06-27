@@ -20,6 +20,7 @@ function validateVars($vars = array())
         'name' => '',
         'placeholder' => '',
         'text' => '',
+        'type' => 'text',
         'value' => ''
         );
     

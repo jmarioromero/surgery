@@ -29,7 +29,8 @@ a.btn { text-decoration: none; }
 .alert-danger { background-color: #CA324B; border-color: #CA324B; color: #FFF; }
 .alert-success { background-color: #32CB93; border-color: #32CB93; color: #FFF; }
 .alert-warning { background-color: #665685; border-color: #665685; color: #FFF; }
+.alert h4 { margin: 0; text-align: justify; }
 /* Small devices (phones) */
 @media (max-width: 480px) {
-
+    #pollform-success .row a { margin-bottom: 20px; }
 }

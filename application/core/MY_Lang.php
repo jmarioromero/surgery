@@ -49,7 +49,7 @@ class MY_Lang extends CI_Lang {
 
     $this->uri = $URI->uri_string();
     $this->default_uri = $RTR->default_controller;
-
+    
     $uri_segment = $this->get_uri_lang($this->uri);
     $this->lang_code = $uri_segment['lang'] ;
 
@@ -67,9 +67,17 @@ class MY_Lang extends CI_Lang {
         $CFG->set_item('language', $this->languages[$this->default_lang()]);
         
         $uri = (!empty($this->uri)) ? $this->uri: $this->default_uri;
+        //die("uri = {$uri}");
         //OPB - modification to use i18n also without changing the .htaccess (without pretty url) 
         $index_url = empty($CFG->config['index_page']) ? '' : $CFG->config['index_page']."/";
         $new_url = $CFG->config['base_url'].$index_url.$this->default_lang().'/'.$uri;
+        
+        if(count($_GET) > 0) {
+            $new_url .= '?';
+            foreach($_GET as $key => $value)
+                $new_url .= "{$key}={$value}&";
+            $new_url = substr_replace($new_url, '', -1);
+        }
 
         // avoid request to language
         if(isset($_REQUEST['_ajax']) && $_REQUEST['_ajax'] == 1)

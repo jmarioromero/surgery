@@ -11,6 +11,7 @@ $lang['marketing.doctype_option1'] = "C.C";
 $lang['marketing.docid_label'] = "Documento";
 $lang['marketing.name_label'] = "Nombre";
 $lang['marketing.search_button'] = "Buscar";
+$lang['marketing.home_button'] = "Ir a p&aacute;gina principal";
 /** POLL PERSONALDATA **/
 $lang['marketing.pollform_date'] = "Fecha encuesta";
 $lang['marketing.personaldata_title'] = "Datos personales";
@@ -31,5 +32,6 @@ $lang['marketing.agreement_label'] = "Convenio";
 $lang['marketing.status_label'] = "Estado";
 /** MESSAGES **/
 $lang['marketing.invalid_data'] = "Datos invalidos.";
-$lang['marketing.poll_created'] = "La encuesta ha sido creada y almacenada correctamente.";
+$lang['marketing.poll_created'] = "La informaci&oacute;n de la encuesta ha sido almacenada correctamente.";
 $lang['marketing.user_exists'] = "El documento ya existe en el sistema.";
+$lang['marketing.validate_msg'] = "Debe diligenciar todos los campos del formulario, establecer informaci&oacute;n v&aacute;lida.";

@@ -39,8 +39,10 @@ class Marketing extends MY_Controller
 
     public function search()
     {
+        $data['search'] = $this->input->get('s');
+        
         load_view(VIEW_HEADER);
-        load_view(VIEW_CUSTOMER_SEARCH);
+        load_view(VIEW_CUSTOMER_SEARCH, $data);
         load_view(VIEW_FOOTER);
     }
 

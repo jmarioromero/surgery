@@ -1,7 +1,7 @@
 ;var cModule = (function($) {
 
     var _moduleList = [];
-    var BASEURL = {};
+    var BASEURL = '';
     var SUCCESSCODE = '00';
 
     return {
@@ -18,15 +18,15 @@
         
         documentReady: function() {
             
-            BASEURL = $('input#baseurl').val();
+            cModule.BASEURL = $('input#baseurl').val();
             
-            if(BASEURL == '') window.console.log('[Warning] BASEURL no set!');
+            if(cModule.BASEURL === '') console.log('[Warning] BASEURL no set!');
             
-            window.console.log('excecute method ready in cModule!');
+            console.log('excecute method ready in cModule!');
 
             for (var _i in _moduleList)
                 if (typeof(_moduleList[_i].documentReady) === 'undefined')
-                    window.console.log(_moduleList[_i].name() + ' module must put \'documentReady()\' method.');
+                    console.log(_moduleList[_i].name() + ' module must put \'documentReady()\' method.');
                 else
                     _moduleList[_i].documentReady();
         },
@@ -47,7 +47,8 @@
         },
         
         alert: function(_text, _type) {
-            $.growl(_text, {type: _type, position: {from: 'top', align: 'center'}, delay: 100000});
+            if($('div.alert').length == 0)
+                $.growl(_text, {type: _type, position: {from: 'top', align: 'center'}, delay: 6000});
         },
         
         toJSON: function(_data) {
@@ -60,13 +61,10 @@
         },        
         
         callAjax: function(_url, _params, _callback, _errorcallback) {
-            
-            if ($.type(_params) === 'string') {
+            if ($.type(_params) === 'string')
                 _params += '&_ajax=1';
-            } else {
+            else
                 _params._ajax = 1;
-            }            
-            
             setTimeout(function() {
                 $.ajax({
                     url: (BASEURL + _url),
@@ -82,7 +80,33 @@
                     }
                 });
             }, 500);        
-        }
+        },
+        
+        isEmail: function(_email){
+        	var _regex = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+        	return _regex.test(_email);
+        },
+        
+        postRedirect: function(_action, _inputs) {
+            var _container = $('<div />').hide();
+            var _form = $('<form />').attr({
+                action: _action,
+                id: 'formtemp',
+                method: 'post'
+            });
+            if (_inputs) {
+                $.map(_inputs, function(_value, _key) {
+                    $('<input />').attr({
+                        name: _key,
+                        type: 'hidden',
+                        value: _value
+                    }).appendTo(_form);
+                });
+            }
+            _form.appendTo(_container);
+            _container.appendTo($('body'));
+            _form.submit();
+        }        
     };
 })(jQuery);
 

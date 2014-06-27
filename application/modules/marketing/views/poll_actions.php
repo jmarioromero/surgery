@@ -15,6 +15,7 @@
 
                         <?php button(array(
                             'class' => 'btn-warning savepool-btn',
+                            'icon' => 'glyphicon-save',
                             'text' => 'marketing.save_button',
                         )); ?>
 

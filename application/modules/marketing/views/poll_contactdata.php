@@ -15,7 +15,7 @@
                     'label' => 'marketing.celphone_label',
                     'class' => 'numeric',
                     'maxlength' => '15',
-                    'name' => 'celphone'                    
+                    'name' => 'celphone'
                 )); ?>
             
             </div>                
@@ -25,9 +25,9 @@
             
                 <?php input(array(
                     'label' => 'marketing.phone_label',
-                    'class' => 'numeric',
+                    'class' => 'numeric no-required',
                     'maxlength' => '15',
-                    'name' => 'phone'                    
+                    'name' => 'phone'
                 )); ?>
             
             </div>                
@@ -41,7 +41,8 @@
                     'label' => 'marketing.email_label',
                     'class' => 'email',
                     'maxlength' => '40',
-                    'name' => 'email'                    
+                    'name' => 'email',
+                    'type' => 'email'
                 )); ?>
             
             </div>                

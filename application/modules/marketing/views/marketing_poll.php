@@ -3,6 +3,8 @@
     <hr />
     <form id="pollform" role="form">
         
+        <input id="validate-msg" type="hidden" value="<?php echo lang('marketing.validate_msg'); ?>" />
+        
         <?php load_view(VIEW_POLL_ACTIONS); ?>
         
         <hr />
@@ -17,4 +19,7 @@
             
         <br />
     </form>
+    
+    <?php load_view(VIEW_POLL_SUCCESS); ?>
+    
 </div>

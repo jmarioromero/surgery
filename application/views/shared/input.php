@@ -5,6 +5,7 @@
 <?php $innergroup = isset($innergroup) ? $innergroup : TRUE; ?>
 <?php $name = isset($name) ? $name : ''; ?>
 <?php $placeholder = isset($placeholder) ? lang($placeholder) : $label; ?>
+<?php $type = isset($type) ? $type : 'text'; ?>
 <?php $value = isset($value) ? $value : ''; ?>
 
 <?php if ($innergroup): ?>
@@ -20,7 +21,7 @@
     <?php endif; ?>
     
     <input id="<?php echo $id; ?>" 
-        type="text" class="form-control <?php echo $class; ?>" 
+        type="<?php echo $type; ?>" class="form-control <?php echo $class; ?>" 
         placeholder="<?php echo $placeholder; ?>" 
         maxlength="<?php echo $maxlength; ?>"
         name="<?php echo $name; ?>" 

@@ -31,11 +31,41 @@
         },
         
         search: function(_this) {
-            window.location = cModule.BASE_URL 
-                + 'marketing/search/?s=' + encodeURIComponent($('input#search').val());
+            var _search = $('input#search').val();
+            if(_search !== '') {
+                window.location = cModule.BASEURL + 'marketing/search/?s=' + encodeURIComponent(_search);
+            }
+        },
+        
+        validateForm: function() {
+            var _found = 0;
+            var _inputlist = _pollform.find('input, select').not('.no-required');
+            
+            _inputlist.removeClass('required');
+            
+            _inputlist.each(function() {
+                var _this = $(this);
+                var _type = _this.attr('type');
+                var _value = _this.val();
+                
+                if(_value === '' ||
+                    (_type === 'email' && !cModule.isEmail(_value))) {
+                    _found++;
+                    _this.addClass('required').focus().select();
+                    return false;
+                }
+            });
+            
+            return (_found == 0)
         },
         
         save: function(_elm) {
+
+            if(!marketingModule.validateForm()) {
+                var _msg = _pollform.find('input#validate-msg').val();
+                cModule.alert(_msg, 'warning');
+            }
+            
             var _fieldList = {};
             
             var _spiner = false;
@@ -53,7 +83,10 @@
                     if (_spiner) _spiner.stop();
                     console.log(_data);
                     if(_data.code === cModule.SUCCESSCODE) {
-                        cModule.alert(_data.description, 'success');
+                        _pollform.fadeOut('normal', function() { 
+                                _pollform.remove();
+                                $('div#pollform-success').fadeIn(); 
+                            });
                     } else {
                         cModule.alert(_data.description, 'warning');
                     }

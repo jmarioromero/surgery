@@ -7,15 +7,17 @@
             <?php input(array(
                 'id' => 'search',
                 'innergroup' => FALSE,
-                'placeholder' => 'marketing.search_title'
+                'placeholder' => 'marketing.search_title',
+                'value' => $search
             )); ?>
             
             <span class="input-group-btn">
     
                 <?php button(array(
                     'class' => 'btn-warning search-btn',
+                    'icon' => 'glyphicon-search',
                     'text' => 'marketing.search_button'
-                )); ?>        
+                )); ?>
             
             </span>
         </div>
