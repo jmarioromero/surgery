@@ -2,7 +2,7 @@
 
     var _moduleList = [];
     var BASEURL = '';
-    var SUCCESSCODE = '00';
+    var SUCCESSCODE = '';
 
     return {
         
@@ -17,8 +17,9 @@
         },
         
         documentReady: function() {
-            
+            //CONSTANTS
             cModule.BASEURL = $('input#baseurl').val();
+            cModule.SUCCESSCODE = '00';
             
             if(cModule.BASEURL === '') console.log('[Warning] BASEURL no set!');
             
@@ -47,7 +48,7 @@
         },
         
         alert: function(_text, _type) {
-            if($('div.alert').length == 0)
+            if($('div.bootstrap-growl').length == 0)
                 $.growl(_text, {type: _type, position: {from: 'top', align: 'center'}, delay: 6000});
         },
         
@@ -106,7 +107,11 @@
             _form.appendTo(_container);
             _container.appendTo($('body'));
             _form.submit();
-        }        
+        },
+        
+        exist: function(_elm) {
+            return (_elm && _elm.length > 0);
+        }
     };
 })(jQuery);
 

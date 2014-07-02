@@ -14,6 +14,7 @@ function validateVars($vars = array())
         'href' => '',
         'id' => '', 
         'icon' => '',
+        'icon_position' => '',
         'label' => '',
         'maxlength' => '',
         'innergroup' => TRUE,
@@ -70,6 +71,11 @@ function getObjResponse($code = NULL, $description = NULL)
     $res->code = $code;
     $res->description = lang($description);
     return $res;
+}
+
+function getDateTime($date = NULL)
+{
+    return ($date == NULL or empty($date)) ? date(DATEFORMAT) : date(DATEFORMAT, strtotime($date));                    
 }
 
 function validate($obj, $mod_name, $except)

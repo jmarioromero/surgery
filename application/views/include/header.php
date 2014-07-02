@@ -15,7 +15,8 @@
             'bootstrap-datepicker.css',
             'bootstrap-timepicker.min.css',
             'bootstrap-ladda-themeless.min.css',
-            'custom.css'
+            'custom.css',
+            'footable.css'
         );
         ?>
         

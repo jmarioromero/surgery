@@ -1,9 +1,10 @@
 <div class="col-md-offset-2 col-md-8 wrapper-form section" id="marketing-section">
     <h2><?php echo lang('marketing.marketing_form'); ?></h2>
     <hr />
+    
+    <input id="validate-msg" type="hidden" value="<?php echo lang('marketing.validate_msg'); ?>" />
+    
     <form id="pollform" role="form">
-        
-        <input id="validate-msg" type="hidden" value="<?php echo lang('marketing.validate_msg'); ?>" />
         
         <?php load_view(VIEW_POLL_ACTIONS); ?>
         

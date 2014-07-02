@@ -16,7 +16,11 @@
             'spin.min.js',
             'ladda.min.js',
             'module_controller.js',
-            'module_marketing.js'
+            'module_marketing.js',
+            'footable/footable.js',
+            'footable/footable.filter.js',
+            'footable/footable.paginate.js',
+            'footable/footable.sortable.js'
         );
         ?>
 

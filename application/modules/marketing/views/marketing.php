@@ -26,6 +26,20 @@
             <hr/>
         
             <?php load_view(VIEW_MARKETING_SEARCH); ?>
+            
+            <div class="align_right">
+
+                <?php alink(array(
+                    'class' => 'btn-default',
+                    'href' => base_url(ROUTE_SEARCHPOLL),
+                    'icon' => 'glyphicon-chevron-right',
+                    'icon_position' => 'right',
+                    'text' => 'marketing.searchmodule_button'
+                )); ?>
+
+            </div>
+            
+            <br />
                         
         </div>
     </div>  

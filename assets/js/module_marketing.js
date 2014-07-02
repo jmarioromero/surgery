@@ -13,18 +13,25 @@
         
         documentReady: function() {
 
-            window.console.log('excecute method ready from marketingMod!');
+            console.log('excecute method ready from marketingMod!');
+            
+            this.bindActions();
+        },
+        
+        bindActions: function() {
 
             _section.find('input.onlyletters').numeric({onlyletters: true, allowspace: true});
             _section.find('input.email').numeric({email: true});
             _section.find('input.numeric').numeric({decimal: false, negative: false});
             _section.find('select.selectpicker').selectpicker();
             
-            this.bindActions();
-        },
-        
-        bindActions: function() {
             $('div.date-wrapper').datepicker({ autoclose: true, endDate: '1d' });
+            
+            var _footable = _section.find('table.footable');
+
+            if(cModule.exist(_footable)) {
+                _footable.footable();
+            }
             
             cModule.clickEvent(_searchbtn, this.search);
             cModule.clickEvent(_savebtn, this.save);
@@ -39,7 +46,7 @@
         
         validateForm: function() {
             var _found = 0;
-            var _inputlist = _pollform.find('input, select').not('.no-required');
+            var _inputlist = _pollform.find('input, select').not('.no-required, .hidden');
             
             _inputlist.removeClass('required');
             
@@ -60,10 +67,10 @@
         },
         
         save: function(_elm) {
-
+            
             if(!marketingModule.validateForm()) {
-                var _msg = _pollform.find('input#validate-msg').val();
-                cModule.alert(_msg, 'warning');
+                cModule.alert($('input#validate-msg').val(), 'warning');
+                return;
             }
             
             var _fieldList = {};

@@ -12,6 +12,7 @@ $lang['marketing.docid_label'] = "Document";
 $lang['marketing.name_label'] = "Full name";
 $lang['marketing.search_button'] = "Search";
 $lang['marketing.home_button'] = "Go to home";
+$lang['marketing.searchmodule_button'] = "Go to search module";
 /** POLL PERSONALDATA **/
 $lang['marketing.personaldata_title'] = "Personal Information";
 $lang['marketing.pollform_date'] = "Poll date";
@@ -35,3 +36,9 @@ $lang['marketing.invalid_data'] = "Invalid Data.";
 $lang['marketing.poll_created'] = "Survey information has been successfully stored.";
 $lang['marketing.user_exists'] = "The document already exists in the system.";
 $lang['marketing.validate_msg'] = "You must fill out all fields in the form, and put valid information.";
+/** SEARCH **/
+$lang['marketing.nodata_text'] = "No items to display";
+$lang['marketing.name_th'] = "Name";
+$lang['marketing.document_th'] = "Document";
+$lang['marketing.celphone_th'] = "Celphone";
+$lang['marketing.phone_th'] = "Phone";

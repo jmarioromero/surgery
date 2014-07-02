@@ -40,6 +40,7 @@ define('FOPEN_WRITE_CREATE_STRICT', 'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT', 'x+b');
 
 /** GENERAL **/
+define('DATEFORMAT', 'Y-m-d h:i:s');
 define('DATEPICKER_FORMAT', 'd-m-Y');
 define('SUCCESS', '00');
 define('ERROR', '01');

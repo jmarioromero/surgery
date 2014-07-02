@@ -12,6 +12,7 @@ $lang['marketing.docid_label'] = "Documento";
 $lang['marketing.name_label'] = "Nombre";
 $lang['marketing.search_button'] = "Buscar";
 $lang['marketing.home_button'] = "Ir a p&aacute;gina principal";
+$lang['marketing.searchmodule_button'] = "Ir al modulo de b&uacute;squeda";
 /** POLL PERSONALDATA **/
 $lang['marketing.pollform_date'] = "Fecha encuesta";
 $lang['marketing.personaldata_title'] = "Datos personales";
@@ -35,3 +36,9 @@ $lang['marketing.invalid_data'] = "Datos invalidos.";
 $lang['marketing.poll_created'] = "La informaci&oacute;n de la encuesta ha sido almacenada correctamente.";
 $lang['marketing.user_exists'] = "El documento ya existe en el sistema.";
 $lang['marketing.validate_msg'] = "Debe diligenciar todos los campos del formulario, establecer informaci&oacute;n v&aacute;lida.";
+/** SEARCH **/
+$lang['marketing.nodata_text'] = "No hay datos para mostrar";
+$lang['marketing.name_th'] = "Nombre";
+$lang['marketing.document_th'] = "# identificaci&oacute;n";
+$lang['marketing.celphone_th'] = "Celular";
+$lang['marketing.phone_th'] = "Tel&eacute;fono";
